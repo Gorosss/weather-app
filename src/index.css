@@ -37,8 +37,10 @@ body {
 @media (max-width: 1100px) {
   .app {
     width: 100%;
-    height: auto;
+    height: 100%;
     padding: 2rem;
+    margin-top: 50px;
+    margin-bottom: 50px;
   }
 }
 
@@ -68,9 +70,13 @@ input:focus {
   outline: 2px solid #222;
 }
 
+  .weatherContainer {
+    width: 100%;
+  }
+
 .weather {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); /* Ajusta automáticamente el número de columnas */
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
   gap: 10px;
   justify-items: center;
 }

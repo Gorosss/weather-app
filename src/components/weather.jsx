@@ -2,7 +2,7 @@ import { Day } from "./formatDay";
 
 export function Weather({ weather, location }) {
   return (
-    <div>
+    <div className="weatherContainer">
       <h2>Weather {location}</h2>
       <div className="weather">
         {weather.time.map((date, i) => {
