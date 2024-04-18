@@ -4,7 +4,7 @@ export function Weather({ weather, location }) {
   return (
     <div>
       <h2>Weather {location}</h2>
-      <ul className="weather">
+      <div className="weather">
         {weather.time.map((date, i) => {
           return (
             <Day
@@ -17,7 +17,7 @@ export function Weather({ weather, location }) {
             />
           );
         })}
-      </ul>
+      </div>
     </div>
   );
 }
