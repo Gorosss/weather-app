@@ -1,23 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { InputFinder } from "./components/inputFinder";
+import { Weather } from "./components/weather";
+import useWeatherFetcher from "./hooks/useWeatherFetcher";
 
 function App() {
+  const { location, setLocation, isLoading, displayLocation, weather } =
+    useWeatherFetcher("Madrid");
+
+  console.log("weather", weather);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="app">
+      <h1>Weather App</h1>
+      <InputFinder location={location} onChangeLocation={setLocation} />
+
+      {weather !== undefined && weather.weathercode && (
+        <Weather weather={weather} location={displayLocation} />
+      )}
     </div>
   );
 }
