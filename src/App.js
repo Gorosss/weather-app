@@ -3,11 +3,15 @@ import { InputFinder } from "./components/inputFinder";
 import { Weather } from "./components/weather";
 import useWeatherFetcher from "./hooks/useWeatherFetcher";
 
+
+
 function App() {
   const { location, setLocation, isLoading, displayLocation, weather } =
     useWeatherFetcher("Madrid");
 
   console.log("weather", weather);
+
+  
 
   return (
     <div className="app">
