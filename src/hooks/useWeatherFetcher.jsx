@@ -1,5 +1,8 @@
 import { useState, useEffect } from "react";
 import { convertToFlagIcon } from "../components/iconConverters";
+import Flag from 'react-flagkit';
+
+
 
 const useWeatherFetcher = (initialLocation) => {
   const [location, setLocation] = useState(initialLocation);
@@ -25,8 +28,11 @@ const useWeatherFetcher = (initialLocation) => {
       const { latitude, longitude, timezone, name, country_code } =
         geoData.results.at(0);
 
-      setDisplayLocation(`${name} ${convertToFlagIcon(country_code)}`);
-
+        setDisplayLocation(
+          <>
+            {name}   <Flag country={country_code} size={26} />
+          </>
+        );
       // 2) Getting actual weather
       const weatherRes = await fetch(
         `https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&timezone=${timezone}&daily=weathercode,temperature_2m_max,temperature_2m_min`
